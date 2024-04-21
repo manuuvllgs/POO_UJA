@@ -8,4 +8,4 @@ Prácticas de la asignatura Programación Orientada a Objetos del 1º Curso del 
 
 Las prácticas se irán subiendo semanalmente según sean hechas y después de la clase correspondiente se actualizarán los archivos con los ejercicios evaluables incorporados.
 
-#### Prácticas con Mª Saluz Jiménez correspondientes al curso 2023/24
+#### Prácticas con Mª Salud Jiménez correspondientes al curso 2023/24
