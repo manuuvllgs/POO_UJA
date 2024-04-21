@@ -1,4 +1,5 @@
-[poo-github.pdf](https://github.com/manuuvllgs/POO_UJA/files/15052970/poo-github.pdf)
+![poo-github-1](https://github.com/manuuvllgs/POO_UJA/assets/108551582/8814e08c-ca35-48b0-b735-10afd0dd88c0)
+
 # Programación Orientada a Objetos
 # Escuela Politécnica Superior de Jaén
 ## Universidad de Jaén
