@@ -1,0 +1,43 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+title Practica 4 POO - Star Wars
+
+class StarFighter{
+- entero: _numStarsFighter
+- entero: _idSF
+- string: _marca
+- string: _modelo
+- entero: _numPlazas
+}
+
+class Piloto {
+- entero: _numPilotos
+- entero: _idP
+- string: _nombre
+- string: _nacionalidad
+- entero: _numMisiones
+- long: _fechaUltimaMision
+- string: _incidenciasUltimaMision
+}
+
+class Droide {
+- entero: _numDroides
+- entero: _idD
+- string: _marca
+- string: _modelo
+}
+
+class Informe {
+- long: _numInformes
+- entero: _idI
+- entero: _idPiloto
+- long: fechaEstelar
+- string: _datosInforme
+}
+
+StarFighter "nave"-- Piloto
+Piloto "auxiliar"-->"ayudado por" Droide
+Piloto "escribe"..> Informe
+
+@enduml
