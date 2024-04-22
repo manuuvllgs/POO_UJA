@@ -25,9 +25,10 @@ private:
     std::string _apodo = "---";
     int _fechaDeNacimiento = 0;
     std::string _nacionalidad = "---";
-    Poder *_poderes[MAX_PODERES];
     int _numPoderes = 0;
 
+protected:
+    Poder *_poderes[MAX_PODERES];
 public:
     Mutante();
 
@@ -69,14 +70,14 @@ public:
     void addPoderFisico(std::string nombre, std::string descripcion,
                         std::string afectaA, float capacidadD);
 
-    void addPoderPsiquico(std::string nombre, std::string descripcion,
+    virtual void addPoderPsiquico(std::string nombre, std::string descripcion,
                           std::string afectaA, float capacidadD, float lucidez);
 
     void addPoder(const Poder &poder);
 
     void addPoder(const PoderFisico &poder);
 
-    void addPoder(const PoderPsiquico &poder);
+    virtual void addPoder(const PoderPsiquico &poder);
 
     int getNumPoderes() const;
 
@@ -86,7 +87,7 @@ public:
 
     void borraPoderes();
 
-    float capacidadDestructivaTotal() const;
+    virtual float capacidadDestructivaTotal() const;
 
     bool operator<(const Mutante &m1);
 

@@ -37,7 +37,7 @@ public:
 
     virtual std::string toCSV() const override;
 
-    virtual void operator=(const PoderPsiquico &orig) override;
+    virtual void operator=(const PoderPsiquico &orig);
 };
 
 #endif /* PODERPSIQUICO_H */

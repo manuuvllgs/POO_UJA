@@ -9,6 +9,7 @@
 #include <fstream>
 #include "EquipoMutante.h"
 #include "ordena.h"
+#include "Replicante.h"
 
 using namespace std;
 
@@ -182,10 +183,7 @@ int main(int argc, char **argv) {
     ordenar(mutantes, 5);
     almacenaMutantesCSV(mutantes, 5, archivoMutantes);
 
-    for (int i = 0; i < MAXMUTANTES; i++) {
-        delete mutantes[i];
-        mutantes[i] = nullptr;
-    }
+
 
     // ToDo, ejercicio opcional
 
@@ -216,6 +214,12 @@ int main(int argc, char **argv) {
         }
     }
 
+    try {
+        Replicante rp1;
+        rp1.addPoder(PoderPsiquico("pod","dsc","af",10,0.9));
+    } catch (std::invalid_argument &ia){
+        std::cerr << ia.what();
+    }
     return 0;
 
 }
