@@ -13,6 +13,7 @@
 class Item {
 public:
     virtual std::string getDescripcion()=0;
+
 };
 
 #endif /* ITEM_H */

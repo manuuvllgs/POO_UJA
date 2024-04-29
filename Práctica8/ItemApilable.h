@@ -23,6 +23,7 @@ public:
 
     virtual ~ItemApilable();
 
+
 private:
     int _numElementos;
 };

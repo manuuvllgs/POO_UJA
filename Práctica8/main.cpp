@@ -20,8 +20,8 @@ using namespace std;
  * @pre v no contiene punteros inicializados
  * @post crea algunos objetos en el vector e inicializa el resto de elementos a nullptr
  * @return número de posiciones del vector con items creados*/
-int inicializaItems(Item* v[], int tamv) {
-    int numItems=0;
+int inicializaItems(Item *v[], int tamv) {
+    int numItems = 0;
 
     v[numItems++] = new Bloque(5);
     v[numItems++] = new Bloque(8);
@@ -29,17 +29,20 @@ int inicializaItems(Item* v[], int tamv) {
     v[numItems++] = new Espada;
     v[numItems++] = new Filete;
 
+
+
     //Asigna nullptr el resto de posiciones no ocupadas
     for (int i = numItems; i < tamv; i++) {
         v[i] = nullptr;
-    }        
+    }
     return numItems;
 }
+
 /**Libera los items del vector creados en memoria dinámica*/
-void liberaItems(Item* v[], int numItems) {
+void liberaItems(Item *v[], int numItems) {
     for (int i = 0; i < numItems; i++) {
         delete v[i];
-        v[i]=nullptr;
+        v[i] = nullptr;
     }
 
 }
@@ -48,7 +51,7 @@ void visualiza(Cofre &c) {
     std::cout << "CONTENIDO DEL COFRE" << std::endl
               << "===================" << std::endl;
     for (int i = 1; i <= c.cuantosHay(); i++) {
-        std::cout << i <<".- "
+        std::cout << i << ".- "
                   << c.consulta(i).getDescripcion() << std::endl;
     }
 
@@ -58,14 +61,16 @@ void visualiza(Cofre &c) {
 /**@brief Probando los Cofres
  * 
  */
-int main(int argc, char** argv) {
+int main(int argc, char **argv) {
 
     try {
         const int MAXITEMS = 10;
         Item *objetos[MAXITEMS];
 
+
         //Inicializamos algunos objetos de prueba
         int numObjetos = inicializaItems(objetos, MAXITEMS);
+
 
         Cofre c; //Creamos un cofre con 27 posiciones
 
@@ -77,10 +82,24 @@ int main(int argc, char** argv) {
 
         visualiza(c);
 
+        Espada esp1;
+        for (int i=0 ; i < 4; ++i){
+            esp1.usar();
+        }
+
+        Espada esp2;
+        for (int i = 0; i < 10; ++i) {
+            esp2.usar();
+        }
+
+        std::cout << "\n" << esp1.getDescripcion();
+        std::cout << "\n" << esp2.getDescripcion();
+
+
         //Liberamos recursos
         liberaItems(objetos, numObjetos);
 
-    } catch (std::exception &e){
+    } catch (std::exception &e) {
         std::cerr << e.what();
     }
     return 0;

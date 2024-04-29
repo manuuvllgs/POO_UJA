@@ -4,11 +4,13 @@
 
 #ifndef PROJECT_PR8_ESPADA_H
 #define PROJECT_PR8_ESPADA_H
-#include "Item.h"
+#include "ItemUsable.h"
+#include <sstream>
 
-class Espada: public Item {
+
+class Espada: public ItemUsable {
 public:
-    Espada();
+    Espada(): ItemUsable(){}
 
     virtual std::string getDescripcion() override;
 

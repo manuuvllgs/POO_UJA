@@ -5,10 +5,16 @@
 #include "Espada.h"
 
 std::string Espada::getDescripcion() {
-    return "Una Espada";
+    std::stringstream aux;
+    aux << "Una Espada (";
+    if (this->getPuntosEstado()==0){
+        aux << "Rota)";
+    } else {
+        aux << this->getPuntosEstado() << ")";
+    }
+    return aux.str();
 }
 
-Espada::Espada() {}
 
 Espada::~Espada() {
 
