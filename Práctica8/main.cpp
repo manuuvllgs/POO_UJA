@@ -83,17 +83,22 @@ int main(int argc, char **argv) {
         visualiza(c);
 
         Espada esp1;
-        for (int i=0 ; i < 4; ++i){
-            esp1.usar();
-        }
-
         Espada esp2;
-        for (int i = 0; i < 10; ++i) {
-            esp2.usar();
+        Espada *esp3 = &esp1;
+        Espada *esp4 = &esp2;
+
+        objetos[numObjetos] = esp3;
+        for (int i=0 ; i < 4; ++i){
+            esp3->usar();
         }
 
-        std::cout << "\n" << esp1.getDescripcion();
-        std::cout << "\n" << esp2.getDescripcion();
+
+        for (int i = 0; i < 10; ++i) {
+            esp4->usar();
+        }
+
+        std::cout << "\n" << esp3->getDescripcion();
+        std::cout << "\n" << esp4->getDescripcion();
 
 
         //Liberamos recursos

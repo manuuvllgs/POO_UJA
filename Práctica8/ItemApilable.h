@@ -9,7 +9,7 @@
 class ItemApilable: public Item {
 public:
     const int MAX_ELEMENTOS = 64;
-    const int MIN_ELEMENTOS = 1;
+    const int MIN_ELEMENTOS = 1; // se sobreentiende
 
     explicit ItemApilable(int numElementos);
 
