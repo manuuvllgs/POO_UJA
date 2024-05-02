@@ -38,7 +38,7 @@ int inicializaItems(ContenedorItems* v, int tamv) {
 /**Libera los items del vector creados en memoria dinámica*/
 void liberaItems(ContenedorItems* v, int numItems) {
     for (int i = 1; i < numItems; i++) {
-        v->saca(i);
+        v->saca(1);
     }
 }
 
@@ -65,7 +65,6 @@ int main(int argc, char** argv) {
 
         //Inicializamos algunos objetos de prueba
         int numObjetos = inicializaItems(objetos, MAXITEMS);
-        inicializaItems(objetos,MAXITEMS);
 
         Cofre c; //Creamos un cofre con 27 posiciones
         Cofre *pC = &c;
