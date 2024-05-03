@@ -8,7 +8,7 @@
 #include <cstdlib>
 #include <iostream>
 
-#include "ContenedorItems.h"
+#include "Contenedor.h"
 #include "Item.h"
 #include "Bloque.h"
 #include "Espada.h"
@@ -22,7 +22,7 @@ using namespace std;
  * @pre v no contiene punteros inicializados
  * @post crea algunos objetos en el vector e inicializa el resto de elementos a 0
  * @return número de posiciones del vector con items creados*/
-int inicializaItems(ContenedorItems* v, int tamv) {
+int inicializaItems(Contenedor<Item>* v, int tamv) {
     int numItems = 0;
 
     v->mete(new Bloque(5));
@@ -36,14 +36,14 @@ int inicializaItems(ContenedorItems* v, int tamv) {
 }
 
 /**Libera los items del vector creados en memoria dinámica*/
-void liberaItems(ContenedorItems* v, int numItems) {
+void liberaItems(Contenedor<Item>* v, int numItems) {
     for (int i = 1; i < numItems; i++) {
         v->saca(1);
     }
 }
 
-void visualiza(ContenedorItems &c) {
-    std::cout << "CONTENIDO DEL CONTENEDOR" << std::endl
+void visualiza(Contenedor<Item> &c) {
+    std::cout << "\nCONTENIDO DEL CONTENEDOR" << std::endl
             << "===================" << std::endl;
     for (int i = 1; i <= c.cuantosHay(); i++) {
         std::cout << i << ".- "
@@ -58,8 +58,8 @@ void visualiza(ContenedorItems &c) {
 int main(int argc, char** argv) {
 
     const int MAXITEMS = 10;
-    ContenedorItems cont1;
-    ContenedorItems* objetos= &cont1;
+    Contenedor<Item> cont1;
+    Contenedor<Item>* objetos= &cont1;
 
     try {
 

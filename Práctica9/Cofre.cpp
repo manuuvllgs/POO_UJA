@@ -15,7 +15,7 @@ void Cofre::mete(Item *item) {
     if ( dynamic_cast<Cofre*>(item)){
         throw std::invalid_argument ("[Cofre::mete] se esta intentando añadir un cofre a otro cofre");
     }
-    ContenedorItems::mete(item);
+    Contenedor::mete(item);
 }
 
 

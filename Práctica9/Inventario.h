@@ -4,9 +4,9 @@
 
 #ifndef PROJECT_PR9_INVENTARIO_H
 #define PROJECT_PR9_INVENTARIO_H
-#include "ContenedorItems.h"
+#include "Contenedor.h"
 
-class Inventario: public ContenedorItems{
+class Inventario: public Contenedor<Item>{
 
 };
 

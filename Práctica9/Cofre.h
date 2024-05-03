@@ -4,10 +4,10 @@
 
 #ifndef PROJECT_PR9_COFRE_H
 #define PROJECT_PR9_COFRE_H
-#include "ContenedorItems.h"
+#include "Contenedor.h"
 #include "Item.h"
 
-class Cofre : public ContenedorItems, public Item{
+class Cofre : public Contenedor<Item>, public Item{
 public:
 virtual std::string getDescripcion() const override;
 
