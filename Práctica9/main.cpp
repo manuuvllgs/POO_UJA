@@ -22,7 +22,7 @@ using namespace std;
  * @pre v no contiene punteros inicializados
  * @post crea algunos objetos en el vector e inicializa el resto de elementos a 0
  * @return número de posiciones del vector con items creados*/
-int inicializaItems(Contenedor<Item>* v, int tamv) {
+int inicializaItems(Contenedor<Item> *v, int tamv) {
     int numItems = 0;
 
     v->mete(new Bloque(5));
@@ -36,7 +36,7 @@ int inicializaItems(Contenedor<Item>* v, int tamv) {
 }
 
 /**Libera los items del vector creados en memoria dinámica*/
-void liberaItems(Contenedor<Item>* v, int numItems) {
+void liberaItems(Contenedor<Item> *v, int numItems) {
     for (int i = 1; i < numItems; i++) {
         v->saca(1);
     }
@@ -44,10 +44,10 @@ void liberaItems(Contenedor<Item>* v, int numItems) {
 
 void visualiza(Contenedor<Item> &c) {
     std::cout << "\nCONTENIDO DEL CONTENEDOR" << std::endl
-            << "===================" << std::endl;
+              << "===================" << std::endl;
     for (int i = 1; i <= c.cuantosHay(); i++) {
         std::cout << i << ".- "
-                << c.consulta(i).getDescripcion() << std::endl;
+                  << c.consulta(i).getDescripcion() << std::endl;
     }
 
 }
@@ -55,11 +55,29 @@ void visualiza(Contenedor<Item> &c) {
 /**@brief Probando los Cofres
  * 
  */
-int main(int argc, char** argv) {
+
+void visualizaTipo(Inventario &inv) {
+    std::cout << "CONTENIDO DEL INVENTARIO";
+    for (int i = 1; i < inv.cuantosHay()+1; ++i) {
+        Item &item = inv.consulta(i);
+        std::cout << "\n";
+        if (dynamic_cast<Cofre *>(&item)) {
+            std::cout << "Posicion " << i << ": Cofre";
+        } else if (dynamic_cast<Espada *>(&item)) {
+            std::cout << "Posicion " << i << ": Espada";
+        } else if (dynamic_cast<Filete *>(&item)) {
+            std::cout << "Posicion " << i << ": Filete";
+        } else if (dynamic_cast<Bloque*>(&item)){
+            std::cout << "Posicion " << i << ": Bloque";
+        }
+    }
+}
+
+int main(int argc, char **argv) {
 
     const int MAXITEMS = 10;
     Contenedor<Item> cont1;
-    Contenedor<Item>* objetos= &cont1;
+    Contenedor<Item> *objetos = &cont1;
 
     try {
 
@@ -70,7 +88,7 @@ int main(int argc, char** argv) {
         Cofre *pC = &c;
         //Metemos todos los objetos en el cofre (YA ESTAN METIDOS EN EL CONTENEDOR POR LA FUNCION ANTERIOR)
 
-        inicializaItems(pC,MAXITEMS);
+        inicializaItems(pC, MAXITEMS);
 
         // Comprobar en el programa principal que podemos crear un objeto de tipo inventario y añadirle el cofre
         // que ya teníamos.
@@ -78,7 +96,7 @@ int main(int argc, char** argv) {
         Inventario *inv = &inv1;
         inv->mete(pC);
 
-        visualiza(*inv);
+        visualizaTipo(*inv);
 
         // Ejercicio 5 -> Intentamos añadir un cofre dentro de otro cofre
 
@@ -90,15 +108,15 @@ int main(int argc, char** argv) {
 
         // Ejercicio 6
 
-         visualiza(dynamic_cast<Cofre&>(inv->consulta(1)));
+        visualiza(dynamic_cast<Cofre &>(inv->consulta(1)));
         //Liberamos recursos
         liberaItems(objetos, numObjetos);
-        
+
     } catch (std::exception &e) {
         //Capturamos cualquier excepción que se haya podido escapar
         //En tiempo de desarrollo
         std::cerr << "Finalización del programa por excepción sin capturar: "
-                << e.what() << std::endl;
+                  << e.what() << std::endl;
     }
     return 0;
 }

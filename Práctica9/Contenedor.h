@@ -11,9 +11,8 @@
 
 #ifndef COFRE_H
 #define COFRE_H
+
 template <typename T>
-
-
 class Contenedor {
 public:
     Contenedor(): Contenedor(27)
@@ -54,10 +53,12 @@ Contenedor(const Contenedor& orig)
     }
 
     virtual void mete(T* item) {
-        if (!item)
-            throw std::invalid_argument ("[Cofre::mete] Intento de asignar puntero 0");
-        if (_numItems==_maxItems)
+        if (!item) {
+            throw std::invalid_argument("[Cofre::mete] Intento de asignar puntero 0");
+        }
+        if (_numItems==_maxItems) {
             throw std::out_of_range("[Cofre::mete] No caben más elementos en el cofre");
+        }
         _items[_numItems++]=item;
     }
 
