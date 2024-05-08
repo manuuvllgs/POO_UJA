@@ -1,0 +1,45 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+skinparam style strictuml
+skinparam classAttributeIconSize 0
+
+note "Las fechas se codifican\ncomo YYYYMMDD\nLas horas se codifican como\nHHMMSS" as N
+
+class Jornada {
+   - fecha: int
+   - horasDeSueño: float
+   - peso: float
+}
+
+class Actividad {
+   - horaInicio: int
+   - duraciónSegs: int
+   - pulsoMax: int
+   - pulsoMin: int
+   - pulsoMedio: int
+   - descripción: string
+   - sensaciones: string
+   + getPulsoNormalizado (): int
+}
+
+class Ubicación {
+   - descripción: string
+}
+
+class Natación extends Actividad {
+   - longitudPiscina: int
+   - numLargos: int
+   + getPulsoNormalizado (): int
+}
+
+class NataciónEx extends std::domain_error {
+}
+
+Actividad ---> "lugar" Ubicación
+Jornada *--- "actividades\n1..100" Actividad
+N . Jornada
+N . Actividad
+Natación ..> NataciónEx
+
+@enduml
