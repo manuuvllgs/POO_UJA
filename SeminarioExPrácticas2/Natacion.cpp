@@ -36,5 +36,5 @@ void Natacion::setNumLargos(int numLargos) {
 Natacion::Natacion(const Natacion& orig): Actividad(orig), _numLargos(orig._numLargos),_longitudPiscina(orig._longitudPiscina) {}
 
 int Natacion::getPulsoNormalizado() {
-    return Actividad::getPulsoNormalizado()*1.1;
+    return Actividad::getPulsoMedio()*1.1;
 }
